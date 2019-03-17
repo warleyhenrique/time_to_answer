@@ -1,5 +1,16 @@
 {
   "name": "time_to_answer",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2",
+    "bootstrap": "4.3.1",
+    "jquery": "3.3.1",
+    "jquery.easing": "1.4.1"
+  },
+  "version": "1.0.0",
+  "description": "Web app for questions and answer",
+  "main": "index.js",
+  "repository": "https://github.com/warleyhenrique/time_to_answer",
+  "author": "warleyhenrique <warley.henrique93@gmail.com>",
+  "license": "MIT"
 }
