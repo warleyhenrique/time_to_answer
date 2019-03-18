@@ -2,8 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-//= require rails-ujs
-//= require activestorage
 //= require jquery/dist/jquery
 //= require bootstrap/dist/js/bootstrap
 //= require jquery.easing/jquery.easing
