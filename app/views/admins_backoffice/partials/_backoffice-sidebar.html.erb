@@ -13,9 +13,10 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <%= link_to admins_backoffice_welcome_index_path, class:"nav-link" do %>
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Dashboard</span>
+        <% end %>
       </li>
 
       <!-- Divider -->
@@ -23,14 +24,15 @@
 
           <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Manutenção
       </div>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <%= link_to admins_backoffice_admins_index_path, class:"nav-link" do %>
           <i class="fas fa-fw fa-user-tie"></i>
-          <span>Administradores</span></a>
+          <span>Administradores</span>
+        <% end %>
       </li>
 
       <!-- Nav Item - Tables -->
