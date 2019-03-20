@@ -11,6 +11,7 @@
           <tr>
             <th>#</th>
             <th>Email</th>
+            <th>Criado Em</th>
             <th>Ações</th>
           </tr>
         </thead>
@@ -19,11 +20,19 @@
             <tr>
               <td><%= admin.id %></td>
               <td><%= admin.email %></td>
-              <td style="width: 100px">
-                <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-success btn-circle btn-sm" do%>
-                  <i class="fa fa-edit"></i>
+              <td><%= t(admin.created_at) %></td>
+              <td>
+                <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-success btn-icon-split btn-sm" do%>
+                  <span class="icon text-white-50">
+                    <i class="fa fa-edit"></i>
+                  </span>
                 <% end %>
-                <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                  
+                <a href="#" class="btn btn-danger btn-icon-split btn-sm">
+                  <span class="icon text-white-50">
+                    <i class="fas fa-trash"></i>
+                  </span>
+                </a>
               </td>
             </tr>
           <% end %>
