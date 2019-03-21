@@ -1,5 +1,20 @@
+<% if @user.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <ul class="mb-0">
+      <% @user.errors.full_messages.each do |message|%>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
 <h1 class="h3 mb-4 text-gray-800">Editando Usuarios</h1>
+
 <div class="card shadow mb-4">
+  
   <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary"><%= @user.email%></h6>
   </div>
@@ -7,28 +22,26 @@
   <div class="card-body">
     
     <%= form_with(model: [ :admins_backoffice, @user ], class:"needs-validation", local: true) do |form| %>
-    <form class="needs-validation" novalidate="">
-        
-        <div class="mb-3">
-          <%= form.label :email %>
-          <%= form.text_field :email, class:"form-control", placeholder:"meuemail@example.com" %>
-          <div class="invalid-feedback">
-            Por favor entre com um enedereço de email valido
-          </div>
+      <div class="mb-3">
+        <%= form.label :email %>
+        <%= form.text_field :email, class:"form-control", placeholder:"meuemail@example.com" %>
+        <div class="invalid-feedback">
+          Por favor entre com um enedereço de email valido
         </div>
+      </div>
 
-        <div class="mb-3">
-          <%= form.label :password %>
-          <%= form.text_field :password, class:"form-control" %>
-        </div>
+      <div class="mb-3">
+        <%= form.label :password %>
+        <%= form.text_field :password, class:"form-control" %>
+      </div>
 
-        <div class="mb-3">
-          <%= form.label :password_confirmation %>
-          <%= form.text_field :password_confirmation, class:"form-control" %>
-        </div>
+      <div class="mb-3">
+        <%= form.label :password_confirmation %>
+        <%= form.text_field :password_confirmation, class:"form-control" %>
+      </div>
 
-        <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Atualizar</button>
-        <button class="btn btn-danger btn-lg btn-block" type="submit">Cancelar</button>
-      <% end %>
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Atualizar</button>
+      <button class="btn btn-danger btn-lg btn-block" type="submit">Cancelar</button>
+    <% end %>
   </div>
