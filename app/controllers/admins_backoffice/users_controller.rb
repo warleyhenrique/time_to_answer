@@ -16,7 +16,7 @@ class AdminsBackoffice::UsersController < AdminsBackofficeController
     params_user = params.require(:user).permit(:email, :password, :password_confirmation)
 
     if @user.update(params_user)
-      redirect_to admins_backoffice_users_path, notice:"Usuario atualizado com sucesso"
+      redirect_to admins_backoffice_users_path, notice:"#{@user.email} atualizado com sucesso!"
     else
       render :edit
     end
