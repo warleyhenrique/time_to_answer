@@ -1,28 +1,16 @@
-<% if notice.present? %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <%= notice %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div class="row">
+  <div class="col">
+    <h1 class="h3 mb-4 text-gray-800">Administradores</h1>
   </div>
-<% end %>
-
-<h1 class="h3 mb-4 text-gray-800">Administradores</h1>
+  <div class="col-auto">
+    <%= link_to new_admins_backoffice_admin_path, class:"d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"  do%>
+      <i class="fas fa-plus fa-sm text-white-50"></i> Novo Administrador
+    <% end %>
+  </div>
+</div>
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <div class="row align-items-end">
-      
-      <div class="col">
-        <h3 class="m-0 font-weight-bold text-primary">Lista de Adminstradores</h3>
-      </div>
-
-      <div class="col-auto">
-        <a href="#" class="btn btn-success btn-circle">
-          <i class="fas fa-plus"></i>
-        </a>
-      </div>
-
-    </div>
+     <h6 class="m-0 font-weight-bold text-primary">Lista de Adminstradores</h6>
   </div>
 
   <div class="card-body">
@@ -48,12 +36,12 @@
                     <i class="fa fa-edit"></i>
                   </span>
                 <% end %>
-                  
-                <a href="#" class="btn btn-danger btn-icon-split btn-sm">
+
+                <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-icon-split btn-sm", data:{ confirm: "Deseja realmente excluir ?"} do %>  
                   <span class="icon text-white-50">
                     <i class="fas fa-trash"></i>
                   </span>
-                </a>
+                <% end %>
               </td>
             </tr>
           <% end %>
