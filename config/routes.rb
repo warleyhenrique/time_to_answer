@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get 'welcome/index'
     resources :admins
     resources :users
+    resources :subjects
   end
   namespace :site do
     get 'welcome/index'
