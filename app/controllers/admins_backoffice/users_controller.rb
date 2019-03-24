@@ -3,7 +3,7 @@ class AdminsBackoffice::UsersController < AdminsBackofficeController
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page])
   end
 
   def edit
