@@ -1,0 +1,39 @@
+<% if @question.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <ul class="mb-0">
+      <% @question.errors.full_messages.each do |message|%>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+<h1 class="h3 mb-4 text-gray-800">Editando Questões</h1>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary"></h6>
+  </div>
+
+  <div class="card-body">
+    
+    <%= form_with(model: [ :admins_backoffice, @question ], class:"needs-validation", local: true) do |form| %>
+    <form class="needs-validation" novalidate="">
+        
+        <div class="mb-3">
+          <%= form.label :subject_id %>
+          <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, {class:"form-control"})%>
+        </div>
+        
+        <div class="mb-3">
+          <%= form.label :description %>
+          <%= form.text_area :description, class:"form-control", placeholder:"Ex: História Geral" %>
+        </div>
+
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg" type="submit">Atualizar</button>
+        <%= link_to 'Cancelar', admins_backoffice_subjects_path, class:"btn btn-danger btn-lg" %>
+      <% end %>
+  </div>

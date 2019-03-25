@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col">
+    <h1 class="h3 mb-4 text-gray-800">Perguntas</h1>
+  </div>
+  <div class="col-auto">
+    <%= link_to new_admins_backoffice_question_path, class:"d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"  do%>
+      <i class="fas fa-plus fa-sm text-white-50"></i> Nova Pergunta
+    <% end %>
+  </div>
+</div>
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+     <h6 class="m-0 font-weight-bold text-primary">Lista de Perguntas</h6>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Descrição</th>
+            <th>Assunto</th>
+            <th>Criado Em</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @questions.each do |question| %>
+            <tr>
+              <td><%= question.id %></td>
+              <td><%= question.description.truncate(50) %></td>
+              <td><%= question.subject.description.truncate(50) %></td>
+              <td><%= t(question.created_at) %></td>
+              <td class="custom-td-actions">
+                <%= link_to edit_admins_backoffice_question_path(question), class:"btn btn-primary btn-icon-split btn-sm" do%>
+                  <span class="icon text-white-50">
+                    <i class="fa fa-edit"></i>
+                  </span>
+                <% end %>
+
+                <%= link_to admins_backoffice_question_path(question), method: :delete, class:"btn btn-danger btn-icon-split btn-sm", data:{ confirm: "Deseja realmente excluir ?"} do %>  
+                  <span class="icon text-white-50">
+                    <i class="fas fa-trash"></i>
+                  </span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @questions%>
+    </div>
+  </div>
+</div>
+

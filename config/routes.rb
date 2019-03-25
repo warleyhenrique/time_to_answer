@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :admins
     resources :users
     resources :subjects
+    resources :questions
   end
   namespace :site do
     get 'welcome/index'

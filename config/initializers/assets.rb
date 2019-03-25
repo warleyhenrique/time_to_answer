@@ -22,4 +22,5 @@ Rails.application.config.assets.precompile += %w( jquery-2.2.3/dist/jquery.js bo
 
 #Lib/assets
 Rails.application.config.assets.precompile += %w( sb-admin-2.js asb-admin-2.css
-                                                  gentelha-custom.js gentelha-custom.css img.jpg )
+                                                  gentelha-custom.js gentelha-custom.css img.jpg
+                                                  my-custom.css )
