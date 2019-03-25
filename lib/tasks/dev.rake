@@ -14,6 +14,7 @@ namespace :dev do
       show_spinner("Cadastrando outros Users...") {%x(rails dev:add_fakers_users) }
       show_spinner("Cadastrando User...") {%x(rails dev:add_default_user) }
       show_spinner("Cadastrando assuntos padrões...") { %x(rails dev:add_subjects) }
+      show_spinner("Cadastrando questões testes...") { %x(rails dev:add_questions) }
     else
       puts "Task disponivel apenas para Ambiente de Dev"
     end
@@ -68,6 +69,17 @@ namespace :dev do
       Subject.create!(description: line.strip)
     end
 
+  end
+
+  desc "Adiciona perguntas para teste"
+  task add_questions: :environment do
+    Subject.all.each do |subject|
+      rand(5..10).times do |i|
+        Question.create!(
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+          subject: subject)
+      end
+    end
   end
   
   private
