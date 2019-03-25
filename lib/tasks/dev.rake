@@ -13,8 +13,7 @@ namespace :dev do
       show_spinner("Cadastrando outros Admins...") {%x(rails dev:add_fakers_admins) }
       show_spinner("Cadastrando outros Users...") {%x(rails dev:add_fakers_users) }
       show_spinner("Cadastrando User...") {%x(rails dev:add_default_user) }
-      show_spinner("Cadastrando assuntos padrões...") { %x(rails
-                    dev:add_subjects) }
+      show_spinner("Cadastrando assuntos padrões...") { %x(rails dev:add_subjects) }
     else
       puts "Task disponivel apenas para Ambiente de Dev"
     end
